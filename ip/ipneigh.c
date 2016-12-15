@@ -120,6 +120,8 @@ static int ipneigh_modify(int cmd, int flags, int argc, char **argv)
 				duparg("lladdr", *argv);
 			lla = *argv;
 			lladdr_ok = 1;
+		} else if (strcmp(*argv, "new") == 0) {
+			req.ndm.ndm_flags |= NTF_USE;
 		} else if (strcmp(*argv, "nud") == 0) {
 			unsigned state;
 			NEXT_ARG();
